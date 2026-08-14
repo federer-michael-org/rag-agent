@@ -5,7 +5,7 @@ AWS MCP Server および AWS Bedrock Knowledge Base を活用した AI Agent ア
 ## 必要な環境
 
 - Python 3.13 以上
-- [uv](https://docs.astral.sh/uv/getting-started/installation/) または pip
+- [uv](https://docs.astral.sh/uv/getting-started/installation/) 
 - AWS アカウント（Bedrock へのアクセス権限が必要）
 
 ## セットアップ
@@ -19,15 +19,11 @@ cd rag-agent
 
 ### 2. 依存パッケージをインストール
 
-uv を使う場合（推奨）：
+uv を使う（推奨）：
 ```bash
 uv sync
 ```
-
-pip を使う場合：
-```bash
-pip install -r requirements.txt
-```
+pyenv+venv+pip でも可能ですが、こちらでは割愛
 
 ### 3. 環境変数を設定
 

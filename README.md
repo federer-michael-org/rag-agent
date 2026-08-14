@@ -56,5 +56,5 @@ uv run streamlit run app_with_kb.py
 
 API サーバーを起動する場合：
 ```bash
-uv run python api_server.py
+uv run uvicorn api_server_with_kb:app --host 0.0.0.0 --port 8000
 ```

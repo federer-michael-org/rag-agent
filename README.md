@@ -1,0 +1,1 @@
+これはAWS MCP Server及びAWS Bedrock Knowledge Baseを活用したAI Agentアプリです

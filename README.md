@@ -8,7 +8,7 @@ AWS Bedrock Knowledge Base は AWS Bedrock の RAG を構築する必要があ�
 | AWS MCP Server のみ | `app.py` 及び `agent.py` |
 | AWS MCP Server + Knowledge Base | `app_with_kb.py` 及び `agent_with_kb.py` |
 
-## 必要な環境
+## 環境要件
 
 - Python 3.13 以上
 - [uv](https://docs.astral.sh/uv/getting-started/installation/)
@@ -43,11 +43,11 @@ export AWS_SESSION_TOKEN=your_session_token
 
 > `AWS_SESSION_TOKEN` は一時認証情報（AWS SSO や STS）を使う場合に必要です。
 
-## 4. アプリを起動
+### 4. アプリを起動
 
 ---
 
-### ▶ AWS MCP Server のみ（`app.py`）
+#### ▶ AWS MCP Server のみ（`app.py`）
 
 **UI モード：**
 ```bash
@@ -74,7 +74,7 @@ curl -X POST http://localhost:8000/chat \
 
 ---
 
-### ▶ AWS MCP Server + Knowledge Base（`app_with_kb.py`）
+#### ▶ AWS MCP Server + Knowledge Base（`app_with_kb.py`）
 
 > **事前準備：** AWS Bedrock Knowledge Base での RAG 構築が必要です（別途ガイド提供します）
 

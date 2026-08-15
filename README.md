@@ -60,6 +60,17 @@ AWSでMCPサーバをホスティングする方法を教えて
 以下のような表示が出ればOK：
 ![説明テキスト](images/app.png)
 
+APIモードで起動する場合：
+```bash
+uv run uvicorn api_server:app --host 0.0.0.0 --port 8000
+```
+以下のコマンドをターミナルから実行してUI版と同じ結果になればOK
+```bash
+curl -X POST http://localhost:8000/chat \
+  -H "Content-Type: application/json" \
+  -d '{"message": "AWSでMCPサーバをホスティングする方法を教えて", "session_id": "test-001"}'
+```
+
 AWS MCP Server 及び AWS Bedrock Knowledge Base を活用した Agent を起動する場合：
 ```bash
 uv run streamlit run app_with_kb.py
@@ -73,7 +84,13 @@ uv run streamlit run app_with_kb.py
 事前準備として、AWS Bedrock Knowledge Base でのRAGを構築する必要があります（別途ガイド提供します）
 ![説明テキスト](images/app_with_kb.png)
 
-API サーバーを起動する場合：
+APIモードで起動する場合：
 ```bash
-uv run uvicorn api_server_with_kb:app --host 0.0.0.0 --port 8000
+uv run uvicorn api_server_with_kb.py:app --host 0.0.0.0 --port 8000
+```
+以下のコマンドをターミナルから実行してUI版と同じ結果になればOK
+```bash
+curl -X POST http://localhost:8000/chat \
+  -H "Content-Type: application/json" \
+  -d '{"message": "システム設計書を参考に、構築したストレージシステムのS3のライフサイクルルールってどうなっているか教えて", "session_id": "test-001"}'
 ```

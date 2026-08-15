@@ -57,6 +57,8 @@ uv run streamlit run app.py
 ```
 AWSでMCPサーバをホスティングする方法を教えて
 ```
+以下のような表示が出ればOK：
+![説明テキスト](images/app.png)
 
 AWS MCP Server 及び AWS Bedrock Knowledge Base を活用した Agent を起動する場合：
 ```bash
@@ -68,7 +70,8 @@ uv run streamlit run app_with_kb.py
 システム設計書を参考に、構築したストレージシステムのS3のライフサイクルルールってどうなっているか教えて
 ```
 > 事前準備として、AWS Bedrock Knowledge Base でのRAGを構築する必要があります（別途ガイド提供します）
-
+以下のような表示が出ればOK：
+![説明テキスト](images/app_with_kb.png)
 
 API サーバーを起動する場合：
 ```bash

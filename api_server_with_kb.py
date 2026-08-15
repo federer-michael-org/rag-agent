@@ -1,17 +1,26 @@
 import os
 import asyncio
+from contextlib import asynccontextmanager
 from fastapi import FastAPI, Header, HTTPException
 from pydantic import BaseModel
 from typing import Optional
 from agent_with_kb import RagAgent
 
-app = FastAPI(title="RAG Agent API")
+# RagAgentはアプリ起動時に1つだけ生成
+rag_agent = RagAgent()
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # アプリ起動時: MCPクライアントを起動してツール一覧を取得（1回だけ）
+    rag_agent.setup()
+    yield
+    # アプリ終了時: MCPクライアントを閉じる
+    rag_agent.teardown()
+
+app = FastAPI(title="RAG Agent API", lifespan=lifespan)
 
 # セッションごとの会話履歴を管理
 session_store: dict = {}
-
-# RagAgentはアプリ起動時に1つだけ生成
-rag_agent = RagAgent()
 
 
 # ── リクエスト/レスポンスのスキーマ ──────────────────────────

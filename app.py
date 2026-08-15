@@ -1,7 +1,7 @@
 import asyncio
 import nest_asyncio
 import streamlit as st
-from agent import RagAgent
+from agent import RagAgent  # ← 変更
 
 nest_asyncio.apply()
 
@@ -15,9 +15,11 @@ st.title("RAGチャットアプリ")
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-# RAGAgentの初期化
+# RAGAgentの初期化（MCPクライアントの起動・ツール取得もここで1回だけ行う）
 if "agent" not in st.session_state:
-    st.session_state.agent = RagAgent()
+    agent = RagAgent()
+    agent.setup()  # MCPクライアントを起動してツール一覧を取得
+    st.session_state.agent = agent
 
 def print_message(message):
     with st.chat_message(message["role"]):
@@ -51,6 +53,6 @@ async def main():
 
         except Exception as e:
             st.write(f"エラーが発生しました: {e}")
-        
+
 if __name__ == "__main__":
     asyncio.run(main())

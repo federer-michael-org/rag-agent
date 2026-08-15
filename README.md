@@ -68,7 +68,8 @@ uv run streamlit run app_with_kb.py
 システム設計書を参考に、構築したストレージシステムのS3のライフサイクルルールってどうなっているか教えて
 ```
 > 事前準備として、AWS Bedrock Knowledge Base でのRAGを構築する必要があります（別途ガイド提供します）
-> 
+
+
 API サーバーを起動する場合：
 ```bash
 uv run uvicorn api_server_with_kb:app --host 0.0.0.0 --port 8000

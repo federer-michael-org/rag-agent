@@ -36,12 +36,13 @@ pyenv+venv+pip でも可能ですが、こちらでは割愛
 
 AWS 認証情報を環境変数に設定します：
 
-ターミナルで以下を実行（セッション限り有効）：
+ターミナルで以下を実行：
 
 ```bash
 export AWS_ACCESS_KEY_ID=your_access_key_id
 export AWS_SECRET_ACCESS_KEY=your_secret_access_key
 export AWS_SESSION_TOKEN=your_session_token
+```
 
 > `AWS_SESSION_TOKEN` は一時認証情報（AWS SSO や STS）を使う場合に必要です。
 
@@ -51,16 +52,23 @@ AWS MCP Server だけを利用する Agent を起動する場合：
 ```bash
 uv run streamlit run app.py
 ```
-起動したら、プロンプトに以下を入力して動作を確認してください
-> AWSでMCPサーバをホスティングする方法を教えて
+
+起動後、チャット欄に以下を入力して動作を確認してください：
+```
+AWSでMCPサーバをホスティングする方法を教えて
+```
 
 AWS MCP Server 及び AWS Bedrock Knowledge Base を活用した Agent を起動する場合：
 ```bash
 uv run streamlit run app_with_kb.py
 ```
-起動したら、プロンプトに以下を入力して動作を確認してください
-> システム設計書を参考に、構築したストレージシステムのS3のライフサイクルルールってどうなっているか教えて
 
+起動後、チャット欄に以下を入力して動作を確認してください：
+```
+システム設計書を参考に、構築したストレージシステムのS3のライフサイクルルールってどうなっているか教えて
+```
+> 事前準備として、AWS Bedrock Knowledge Base でのRAGを構築する必要があります（別途ガイド提供します）
+> 
 API サーバーを起動する場合：
 ```bash
 uv run uvicorn api_server_with_kb:app --host 0.0.0.0 --port 8000

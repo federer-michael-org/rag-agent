@@ -1,6 +1,13 @@
 # rag-agent
 
-AWS MCP Server および AWS Bedrock Knowledge Base を活用した AI Agent アプリです。
+AWS MCP Server 及び AWS Bedrock Knowledge Base を活用した AI Agent アプリです。
+AWS Bedrock Knowledge Base は AWS Bedrock の RAG を構築する必要があるため、これを利用しない形でも実行可能です。
+
+AWS MCP Serverだけを利用した Agent アプリ
+- app.py 及び agent.py
+
+AWS MCP Server 及び AWS Bedrock Knowledge Base を活用した Agent アプリ
+- app_with_kb.py 及び agent_with_kb.py
 
 ## 必要な環境
 
@@ -19,7 +26,7 @@ cd rag-agent
 
 ### 2. 依存パッケージをインストール
 
-uv を使う（推奨）：
+uv を利用：
 ```bash
 uv sync
 ```
@@ -27,32 +34,32 @@ pyenv+venv+pip でも可能ですが、こちらでは割愛
 
 ### 3. 環境変数を設定
 
-`.env` ファイルをプロジェクトルートに作成し、AWS 認証情報を設定します：
+AWS 認証情報を環境変数に設定します：
+
+ターミナルで以下を実行（セッション限り有効）：
 
 ```bash
-cp .env.example .env
-```
-
-`.env` を編集：
-```
-AWS_ACCESS_KEY_ID=your_access_key_id
-AWS_SECRET_ACCESS_KEY=your_secret_access_key
-AWS_SESSION_TOKEN=your_session_token
-```
+export AWS_ACCESS_KEY_ID=your_access_key_id
+export AWS_SECRET_ACCESS_KEY=your_secret_access_key
+export AWS_SESSION_TOKEN=your_session_token
 
 > `AWS_SESSION_TOKEN` は一時認証情報（AWS SSO や STS）を使う場合に必要です。
 
 ### 4. アプリを起動
 
-Streamlit UI を起動する場合：
+AWS MCP Server だけを利用する Agent を起動する場合：
 ```bash
 uv run streamlit run app.py
 ```
+起動したら、プロンプトに以下を入力して動作を確認してください
+> AWSでMCPサーバをホスティングする方法を教えて
 
-Knowledge Base 版を使う場合：
+AWS MCP Server 及び AWS Bedrock Knowledge Base を活用した Agent を起動する場合：
 ```bash
 uv run streamlit run app_with_kb.py
 ```
+起動したら、プロンプトに以下を入力して動作を確認してください
+> システム設計書を参考に、構築したストレージシステムのS3のライフサイクルルールってどうなっているか教えて
 
 API サーバーを起動する場合：
 ```bash

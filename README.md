@@ -69,8 +69,8 @@ uv run streamlit run app_with_kb.py
 ```
 システム設計書を参考に、構築したストレージシステムのS3のライフサイクルルールってどうなっているか教えて
 ```
-> 事前準備として、AWS Bedrock Knowledge Base でのRAGを構築する必要があります（別途ガイド提供します）
 以下のような表示が出ればOK：
+事前準備として、AWS Bedrock Knowledge Base でのRAGを構築する必要があります（別途ガイド提供します）
 ![説明テキスト](images/app_with_kb.png)
 
 API サーバーを起動する場合：

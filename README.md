@@ -1,7 +1,9 @@
 # rag-agentについて
 
-AWS MCP Server 及び AWS Bedrock Knowledge Base を活用した AI Agent アプリです。
+AWS MCP Server 及び AWS Bedrock Knowledge Base を利用した AI Agent アプリです。
 AWS Bedrock Knowledge Base は AWS Bedrock の RAG を構築する必要があるため、これを利用しない形でも実行可能です。
+AWS MCP Server のみを利用する場合、AWS MCP ServerのtoolプリミティブをAgentを介してLLMに読み込ませ、文脈から必要なtoolを判断して実行します。
+AWS MCP Server + AWS Bedrock Knowledge Baseの場合、上記と同様にtoolプリミティブを読み込むのはもちろんですが、Bedrockで構築したRAGのデータソース（今回はサンプルの設計書）をLLMに読み込ませ、文脈から必要なチャンクを抽出しつつ、MCP Server のtoolと連携して回答します。
 
 | アプリ | ファイル |
 |---|---|

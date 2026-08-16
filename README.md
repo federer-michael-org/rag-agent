@@ -78,7 +78,9 @@ curl -X POST http://localhost:8000/chat \
 
 #### ▶ AWS MCP Server + Knowledge Base（`app_with_kb.py`）
 
-> **事前準備：** AWS Bedrock Knowledge Base での RAG 構築が必要です（別途ガイド提供します）
+> **事前準備：** AWS Bedrock Knowledge Base での RAG 構築が必要です（[ガイドはこちら](docs/AWS%20Bedrock%20Knowledge%20Base利用手順.pdf)）
+> 上記ガイド内で使用するサンプルファイル（[File_Storage_Design.pdf](docs/File_Storage_Design.pdf)）を事前にダウンロードしてください。
+
 
 **UI モード：**
 ```bash

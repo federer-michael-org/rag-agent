@@ -21,7 +21,7 @@ AWS Bedrock Knowledge Base は AWS Bedrock の RAG を構築する必要があ�
 ### 1. リポジトリをクローン
 
 ```bash
-git clone https://github.com/federermichael55/rag-agent.git
+git clone https://github.com/federer-michael-org/rag-agent.git
 cd rag-agent
 ```
 
